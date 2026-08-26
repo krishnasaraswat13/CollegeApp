@@ -329,8 +329,8 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "content": {
               "text/plain": {
                 "schema": {
@@ -425,6 +425,10 @@
         }
       },
       "StudentDTO": {
+        "required": [
+          "studentName",
+          "address"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -432,13 +436,25 @@
             "format": "int32"
           },
           "studentName": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string"
+          },
+          "age": {
+            "maximum": 20,
+            "minimum": 10,
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "format": "int32"
           },
           "email": {
             "type": "string"
           },
           "address": {
             "type": "string"
+          },
+          "admissionDate": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       }

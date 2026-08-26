@@ -122,7 +122,7 @@ namespace CollegeApp.Controller
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
-        public ActionResult<StudentDTO> CreateStudent([FromBody] StudentDTO model) {
+        public ActionResult CreateStudent([FromBody] StudentDTO model) {
             //if (!ModelState.IsValid)    //this is used to validate when we are not using [ApiController]
             //    return BadRequest(ModelState);
 
@@ -138,9 +138,7 @@ namespace CollegeApp.Controller
                 // return BadRequest(ModelState);
 
                 //2. using custom attribute
-
-
-
+                //[DateCheck] in studentdto 
             }
             int newId = CollegeRepository.Students.LastOrDefault().Id + 1;
             Student student = new Student
@@ -158,6 +156,33 @@ namespace CollegeApp.Controller
 
             return CreatedAtRoute("GetStudentById",new {id=model.Id},model); //there are particular routes for particular student so when a new student is created we are also defining the routee by this method 
         }
+
+        [HttpPut]
+        [Route("Update")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]   ///status code for created 
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<StudentDTO> UpdateStudent([FromBody] StudentDTO model)
+        {
+            if(model==null|| model.Id <= 0)
+                return BadRequest();
+
+       var existingStudent = CollegeRepository.Students.Where(s => s.Id == model.Id).FirstOrDefault();
+            if (existingStudent == null)
+            {
+                return NotFound();
+
+            }
+                    existingStudent.StudentName= model.StudentName;
+                    existingStudent.Address= model.Address;
+                    existingStudent.Email=model.Email;
+
+                   // return Ok(existingStudent);//
+                    return NoContent();
+                
+            }
+        
 
         [HttpDelete]
         [Route("{id:int}",Name = "DeleteStudentById")]

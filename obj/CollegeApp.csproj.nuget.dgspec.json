@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\krishna.saraswat\\Documents\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj": {}
+    "I:\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\krishna.saraswat\\Documents\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj": {
+    "I:\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\krishna.saraswat\\Documents\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj",
+        "projectUniqueName": "I:\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj",
         "projectName": "CollegeApp",
-        "projectPath": "C:\\Users\\krishna.saraswat\\Documents\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj",
+        "projectPath": "I:\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\CollegeApp.csproj",
         "packagesPath": "C:\\Users\\krishna.saraswat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\krishna.saraswat\\Documents\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\obj\\",
+        "outputPath": "I:\\C# Practice\\ASP .net Project\\CollegeApp\\CollegeApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
