@@ -13,10 +13,11 @@ namespace CollegeApp.Models
     [StringLength(100)]
     public string StudentName { get; set; }
 
-    [EmailAddress(ErrorMessage ="Email Address is mandatory")]   //these error msg are manual set
 
     [Range(10,20)]
     public int Age { get; set; }
+
+    [EmailAddress(ErrorMessage = "Email Address is mandatory")]   //these error msg are manual set
     public string Email { get; set; }
 
     [Required]

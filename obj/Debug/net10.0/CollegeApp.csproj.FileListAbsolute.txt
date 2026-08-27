@@ -69,3 +69,7 @@ I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\obj\Debug\net10.0\refint\C
 I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\obj\Debug\net10.0\CollegeApp.pdb
 I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\obj\Debug\net10.0\CollegeApp.genruntimeconfig.cache
 I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\obj\Debug\net10.0\ref\CollegeApp.dll
+I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\bin\Debug\net10.0\Newtonsoft.Json.dll
+I:\C# Practice\ASP .net Project\CollegeApp\CollegeApp\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll

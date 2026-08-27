@@ -1,5 +1,6 @@
 ﻿using CollegeApp.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -42,7 +43,10 @@ namespace CollegeApp.Controller
                 Id = s.Id,
                 StudentName = s.StudentName,
                 Address = s.Address,
-                Email = s.Email
+                Email = s.Email,
+                Age = s.Age,
+                AdmissionDate = s.AdmissionDate
+
             });
 
             //Ok-200-Success
@@ -76,7 +80,9 @@ namespace CollegeApp.Controller
                 Id = student.Id,
                 StudentName = student.StudentName,
                 Email = student.Email,
-                Address = student.Address
+                Address = student.Address,
+                Age = student.Age,
+                AdmissionDate = student.AdmissionDate
 
             };
 
@@ -108,7 +114,9 @@ namespace CollegeApp.Controller
                 Id = student.Id,
                 StudentName = student.StudentName,
                 Email = student.Email,
-                Address = student.Address
+                Address = student.Address,
+                Age= student.Age,
+                AdmissionDate= student.AdmissionDate
 
             };
             //Ok
@@ -146,7 +154,9 @@ namespace CollegeApp.Controller
                 Id = newId,
                 StudentName = model.StudentName,
                 Address = model.Address,
-                Email = model.Email
+                Email = model.Email,
+                Age=model.Age,
+                AdmissionDate=model.AdmissionDate
             };
             CollegeRepository.Students.Add(student);
             model.Id = student.Id;
@@ -159,7 +169,7 @@ namespace CollegeApp.Controller
 
         [HttpPut]
         [Route("Update")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]   ///status code for created 
+        [ProducesResponseType(StatusCodes.Status204NoContent)]   ///status code for created  i mean for no response
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -177,12 +187,56 @@ namespace CollegeApp.Controller
                     existingStudent.StudentName= model.StudentName;
                     existingStudent.Address= model.Address;
                     existingStudent.Email=model.Email;
+                    existingStudent.Age=model.Age;
+
 
                    // return Ok(existingStudent);//
                     return NoContent();
                 
             }
-        
+
+
+        [HttpPatch]
+        [Route("{id:int}/UpdatePartial")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]   ///status code for created 
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public ActionResult UpdateStudentPartial(int id,[FromBody] JsonPatchDocument<StudentDTO> patchDocument)
+        {
+
+            if (patchDocument == null || id <= 0)
+                return BadRequest();
+
+            var existingStudent = CollegeRepository.Students.Where(s => s.Id == id).FirstOrDefault();
+            if (existingStudent == null)
+            {
+                return NotFound();
+
+            }
+            var studentDTO = new StudentDTO
+            {
+                Id = existingStudent.Id,
+                StudentName = existingStudent.StudentName,
+                Address = existingStudent.Address,
+                Email = existingStudent.Email,
+                Age = existingStudent.Age
+            };
+            patchDocument.ApplyTo(studentDTO);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            existingStudent.StudentName = studentDTO.StudentName;
+            existingStudent.Address = studentDTO.Address;
+            existingStudent.Email = studentDTO.Email;
+            existingStudent.Age = studentDTO.Age;
+
+
+            // return Ok(existingStudent);//
+            return NoContent();
+        }
 
         [HttpDelete]
         [Route("{id:int}",Name = "DeleteStudentById")]

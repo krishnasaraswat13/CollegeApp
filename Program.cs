@@ -33,15 +33,17 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.                                                                                                                    //this format wali cheez is content negotiation
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers(options=> options.ReturnHttpNotAcceptable=true).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();      //options=> options.ReturnHttpNotAcceptable=true   // returns exception for non suported formats //this itypes used for giving error for unsupported datatype like currently we are using json so it will give error fir xml 
+                                                                                                                                                   //AddNewtonsoftJson()   used to use patch api in our project                                         
+                                                                                                                                                   //AddXmlDataContractSerializerFormatters() for allowing to add xml formats
+                                                                                                                                                   // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi(options =>
 {
     options.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0;
 });
-
+builder.Services.AddScoped<IMyLogger, LogToFile>();     //so directly from here we can change it only here need to change and it will reflect in every controller
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
