@@ -5,6 +5,7 @@ namespace CollegeApp.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    //this constructor is for explaining dependency injection
 
     public class DemoController : ControllerBase
     {
@@ -20,10 +21,10 @@ namespace CollegeApp.Controller
         //{
         //    _myLogger.Log("Index method started");
         //    return Ok();
-        }
+        //}
 
         //2. Loosely coupled
-         private readonly IMyLogger _myLogger;
+        private readonly IMyLogger _myLogger;
         public DemoController(IMyLogger myLogger)     //here we can take that in parameter     //we are writing logic in program.cs
         {
             _myLogger = myLogger;
@@ -35,4 +36,5 @@ namespace CollegeApp.Controller
             return Ok();
 
         }
+    }
 }

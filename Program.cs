@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using CollegeApp.Controller;
 using System.Text.Json.Serialization;
+using CollegeApp.MyLogging;
 
 //var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,17 @@ builder.Services.AddOpenApi(options =>
 {
     options.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0;
 });
+
+//types of dependency injection
+//Singleton
+//One object for the entire application lifetime.
+
+//Scoped
+//One object per HTTP request.
+
+//Transient
+//New object every time it is requested.
+
 builder.Services.AddScoped<IMyLogger, LogToFile>();     //so directly from here we can change it only here need to change and it will reflect in every controller
 var app = builder.Build();
 

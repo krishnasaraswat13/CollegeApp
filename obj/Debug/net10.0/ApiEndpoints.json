@@ -21,11 +21,7 @@
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[CollegeApp.Models.StudentDTO, CollegeApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 200
       }
@@ -55,22 +51,14 @@
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },
@@ -105,22 +93,14 @@
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },
@@ -149,33 +129,21 @@
       {
         "Type": "CollegeApp.Models.StudentDTO",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },
@@ -205,33 +173,21 @@
       {
         "Type": "System.Boolean",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },
@@ -271,22 +227,14 @@
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },
@@ -315,33 +263,21 @@
       {
         "Type": "CollegeApp.Models.StudentDTO",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
+          "application/json"
         ],
         "StatusCode": 404
       },

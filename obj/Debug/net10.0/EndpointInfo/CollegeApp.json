@@ -32,39 +32,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentDTO"
-                  }
-                }
-              },
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentDTO"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentDTO"
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentDTO"
-                  }
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "type": "array",
                   "items": {
@@ -100,27 +68,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/StudentDTO"
                 }
@@ -130,27 +78,7 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -160,27 +88,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -188,7 +96,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       },
@@ -213,27 +124,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "type": "boolean"
                 }
@@ -243,27 +134,7 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -273,27 +144,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -301,7 +152,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       }
@@ -327,27 +181,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/StudentDTO"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/StudentDTO"
                 }
@@ -357,27 +191,7 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -387,27 +201,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -415,7 +209,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       }
@@ -468,32 +265,15 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Created",
+            "content": {
+              "application/json": { }
+            }
           },
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -503,27 +283,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -531,7 +291,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       }
@@ -583,32 +346,15 @@
         },
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content",
+            "content": {
+              "application/json": { }
+            }
           },
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -618,27 +364,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -646,7 +372,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       }
@@ -731,32 +460,15 @@
         },
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content",
+            "content": {
+              "application/json": { }
+            }
           },
           "400": {
             "description": "Bad Request",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -766,27 +478,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -794,7 +486,10 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": { }
+            }
           }
         }
       }

@@ -10,15 +10,22 @@ namespace CollegeApp.Controller
 {
     [Route("api/[controller]")]
     [ApiController]                            //this     In an API Controller, validation usually works like this:
-
-                                                        //Client sends data to API
-                                                        //API maps request data to a model/DTO
-                                                        //Validation rules are checked
-                                                        //If validation fails, API returns an error response, usually 400 Bad Request
-                                                        //If validation passes, controller continues to business logic
+    [Produces("application/json") ]              //Client sends data to API
+    //API maps request data to a model/DTO
+    //Validation rules are checked
+    //If validation fails, API returns an error response, usually 400 Bad Request
+    //If validation passes, controller continues to business logic
     public class StudentController : ControllerBase
 
     {
+
+        private readonly ILogger<StudentController> _logger;
+        public StudentController(ILogger<StudentController> logger)
+        {
+            _logger = logger;
+        }
+
+
         [HttpGet]
         [Route("All",Name= "GetAllStudents")]     //method 1
         public ActionResult<IEnumerable<StudentDTO>> GetStudents()                  //Action result means we are returning the results status code   ActionResult<>
@@ -36,7 +43,7 @@ namespace CollegeApp.Controller
             //    students.Add(obj);
 
             //}
-
+            _logger.LogInformation("GetStudents method started");
 
             var students = CollegeRepository.Students.Select(s => new StudentDTO()
             {
@@ -68,13 +75,20 @@ namespace CollegeApp.Controller
         public ActionResult<StudentDTO> GetStudentById(int id)          //if we use typeOf() then no require to define type here
         {
             //BadRequest-400- ClientError
-            if (id <= 0)                                                                //similarly we can make these conditions for name constraint
+            if (id <= 0) //similarly we can make these conditions for name constraint
+            { 
+                _logger.LogWarning("bad Request");    //Built in loggers(Inbuilt logger) this logger does not require any additional setup //Console
+                
                 return BadRequest();
-
+            }
             //404 Not Found
             var student = CollegeRepository.Students.Where(n => n.Id == id).FirstOrDefault();
             if (student == null)
+            {
+                _logger.LogError("Student not found with given id");
                 return NotFound($"The student with id {id} not found");
+            }
+
             var studentDTO = new StudentDTO
             {
                 Id = student.Id,
