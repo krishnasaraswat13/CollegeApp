@@ -1,79 +1,92 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-using CollegeApp.Controller;
+using CollegeApp;
+using CollegeApp.Data;
+using CollegeApp.Models;
+using CollegeApp.Repositories;
+using CollegeApp.Repositories.Interfaces;
+using CollegeApp.Services;
+using CollegeApp.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
+using System.Text;
 using System.Text.Json.Serialization;
-using CollegeApp.MyLogging;
-
-//var builder = WebApplication.CreateBuilder(args);
-
-//// 1. REGISTER CONTROLLERS: Allows the framework to find your API controllers
-//builder.Services.AddControllers();
-
-//// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-//builder.Services.AddOpenApi();
-//builder.Services.AddEndpointsApiExplorer();
-
-
-//var app = builder.Build();
-
-//if (app.Environment.IsDevelopment())
-//{
-//    app.MapOpenApi();
-
-//    app.UseSwaggerUI(options =>
-//    {
-//        options.SwaggerEndpoint("/openapi/v1.json", "v1");
-//    });
-//}
-
-//// 2. MAP CONTROLLER ROUTES: Exposes controller endpoints to the routing engine
-//app.MapControllers();
-//app.UseAuthorization();
-//app.MapControllers();
-//app.Run();
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.                                                                                                                    //this format wali cheez is content negotiation
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 
-builder.Services.AddControllers(options=> options.ReturnHttpNotAcceptable=true).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();      //options=> options.ReturnHttpNotAcceptable=true   // returns exception for non suported formats //this itypes used for giving error for unsupported datatype like currently we are using json so it will give error fir xml 
-                                                                                                                                                   //AddNewtonsoftJson()   used to use patch api in our project                                         
-                                                                                                                                                   //AddXmlDataContractSerializerFormatters() for allowing to add xml formats
-                                                                                                                                                   // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi(options =>
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(options =>
 {
-    options.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0;
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "CollegeApp API",
+        Version = "v1"
+    });
+
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Enter JWT token like: Bearer {your token}",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+
+    options.OperationFilter<SwaggerAuthorizeOperationFilter>();
 });
 
-//types of dependency injection
-//Singleton
-//One object for the entire application lifetime.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//Scoped
-//One object per HTTP request.
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
-//Transient
-//New object every time it is requested.
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+var key = Encoding.UTF8.GetBytes(jwtSettings!.Key);
 
-builder.Services.AddScoped<IMyLogger, LogToFile>();     //so directly from here we can change it only here need to change and it will reflect in every controller
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(key)
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/openapi/v1.json", "v1");
-    });
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-
